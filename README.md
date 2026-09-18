@@ -1,5 +1,7 @@
 # benchilogs
 
+![benchilogs](./assets/preview.png)
+
 A small offline Windows desktop repair log built with Tauri 2, React, TypeScript, and SQLite, which made my work so much easier. No accounts, remote server, or customer personal-information fields. **(yes it's vibe coded.)**
 
 ## Development
