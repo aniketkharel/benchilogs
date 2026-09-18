@@ -1,0 +1,220 @@
+.handover-dialog {
+  width: min(900px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: var(--navy);
+  background: #eaf0f4;
+  overflow-y: auto;
+}
+.handover-dialog::backdrop {
+  background: #02304780;
+  backdrop-filter: blur(4px);
+}
+.handover-actions {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 20px;
+  background: #ffffff;
+  border-bottom: 1px solid var(--line);
+}
+.handover-actions > div {
+  flex: 1 1 250px;
+}
+.handover-actions strong {
+  font-size: 13px;
+}
+.handover-actions p {
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 5px 0 0;
+}
+.handover-paper {
+  margin: 20px;
+  padding: 32px;
+  background: #ffffff;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.handover-heading img {
+  display: block;
+  object-fit: contain;
+}
+.handover-bench {
+  font-size: 12px;
+  margin: 14px 0 5px;
+  font-weight: 600;
+}
+.handover-heading h1 {
+  font-size: 26px;
+  line-height: 1.2;
+  margin: 0 0 8px;
+  letter-spacing: -0.5px;
+}
+.handover-date {
+  font-size: 16px;
+  margin: 0 0 10px;
+}
+.handover-scope,
+.handover-generated {
+  color: #466779;
+  font-size: 11px;
+  margin: 6px 0;
+}
+.handover-counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 26px;
+  padding: 14px 0;
+  margin: 18px 0;
+  border-top: 2px solid #023047;
+  border-bottom: 1px solid #c8dce5;
+}
+.handover-counts strong {
+  font-size: 20px;
+  margin-right: 4px;
+}
+.handover-group > h2 {
+  font-size: 16px;
+  margin: 24px 0 10px;
+  border-bottom: 2px solid #219ebc;
+  padding-bottom: 5px;
+}
+.handover-group > h2 span {
+  font-weight: 400;
+}
+.handover-job {
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #c8dce5;
+}
+.handover-job h3 {
+  margin: 0;
+  font-size: 14px;
+}
+.handover-job h3 span {
+  font-weight: 400;
+  margin-left: 10px;
+}
+.handover-job header p {
+  margin: 3px 0 10px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.handover-job dl {
+  margin: 0;
+}
+.handover-field {
+  margin-bottom: 8px;
+}
+.handover-field dt {
+  font-size: 11px;
+  font-weight: 700;
+}
+.handover-field dd {
+  margin: 0;
+  white-space: pre-wrap;
+}
+.handover-job-meta {
+  font-size: 11px;
+  margin-top: 12px;
+}
+.handover-job-meta p {
+  margin: 3px 0;
+}
+.handover-footer {
+  font-size: 10px;
+  color: #466779;
+  margin-top: 24px;
+}
+.handover-error {
+  margin: 16px 20px;
+  color: #914600;
+}
+.report-panel-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.report-panel-actions button {
+  padding: 6px 9px;
+  font-size: 11px;
+}
+@media (max-width: 560px) {
+  .handover-paper {
+    margin: 10px;
+    padding: 18px;
+  }
+}
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+  body:has(.handover-dialog[open]) {
+    background: #ffffff !important;
+    min-width: 0;
+    height: auto;
+    overflow: visible;
+  }
+  body:has(.handover-dialog[open]) > :not(.handover-dialog) {
+    display: none !important;
+  }
+  .handover-dialog[open] {
+    display: block !important;
+    position: static !important;
+    width: auto;
+    max-width: none;
+    height: auto;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: #ffffff;
+    box-shadow: none;
+  }
+  .handover-dialog::backdrop {
+    background: transparent;
+    backdrop-filter: none;
+  }
+  .handover-actions,
+  .handover-error {
+    display: none !important;
+  }
+  .handover-paper {
+    margin: 0;
+    padding: 0;
+    font-size: 10pt;
+    color: #023047;
+  }
+  .handover-heading,
+  .handover-counts,
+  .handover-job header {
+    break-inside: avoid;
+  }
+  .handover-group > h2,
+  .handover-job header,
+  .handover-field dt {
+    break-after: avoid;
+  }
+  .handover-field {
+    orphans: 3;
+    widows: 3;
+  }
+  .handover-job-meta {
+    break-inside: avoid;
+  }
+}
